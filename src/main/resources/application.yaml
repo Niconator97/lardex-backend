@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: lardex-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lardex
+    username: lardex
+    password: lardex
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  docker:
+    compose:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /docs
