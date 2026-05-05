@@ -33,12 +33,11 @@ Monolithic backend using a **feature-first structure** with clear layer
 separation.
 
     com.example.lardexbackend
-    ├── inventory
-    ├── shoppinglist
-    ├── household
-    ├── identity
     ├── infrastructure
-    └── shared
+    ├── inventory
+    ├── shared
+    ├── shoppinglist
+    └── LardexBackendApplication.kt
 
 ------------------------------------------------------------------------
 
