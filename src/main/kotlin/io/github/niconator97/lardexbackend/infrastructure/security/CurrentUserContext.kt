@@ -6,5 +6,5 @@ import java.util.UUID
 
 data class CurrentUserContext(
     val userId: UUID,
-    val householdId: UUID
+    val householdId: UUID?
 )

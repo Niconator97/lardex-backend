@@ -8,6 +8,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import com.fasterxml.jackson.databind.exc.InvalidFormatException
+import io.github.niconator97.lardexbackend.identity.application.InvalidCredentialsException
+import jakarta.servlet.http.HttpServletRequest
+
 @RestControllerAdvice
 class GlobalExceptionHandler {
 
@@ -79,4 +82,23 @@ class GlobalExceptionHandler {
                 )
             )
     }
+
+    @ExceptionHandler(InvalidCredentialsException::class)
+    fun handleInvalidCredentials(
+        exception: InvalidCredentialsException,
+        request: HttpServletRequest
+    ): ResponseEntity<ApiError> =
+        ResponseEntity
+            .status(HttpStatus.UNAUTHORIZED)
+            .body(
+                ApiError(
+                    error = "Authentication failed",
+                    details = listOf(
+                        ApiErrorDetail(
+                            field = null,
+                            message = "invalid credentials",
+                        )
+                    )
+                )
+            )
 }

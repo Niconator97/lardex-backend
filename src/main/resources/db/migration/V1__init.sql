@@ -8,7 +8,8 @@ CREATE TABLE households (
 CREATE TABLE users (
                        id UUID PRIMARY KEY,
                        email VARCHAR(255) NOT NULL UNIQUE,
-                       display_name VARCHAR(255) NOT NULL,
+                       firstName VARCHAR(255) NOT NULL,
+                       lastName VARCHAR(255) NOT NULL,
                        password_hash VARCHAR(255) NOT NULL,
                        created_at TIMESTAMP WITH TIME ZONE NOT NULL
 );
